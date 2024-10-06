@@ -14,6 +14,11 @@ app.add_middleware(
 )
 
 quote = "There is a version of you which is funny, charismatic, interesting and rich. You're not him, but you need to make a plan to become him"
+
+@app.get("/")
+def root():
+    return {"message": "Hello World"}
+
 @app.get("/quote")
 def get_quote():
     return {"quote": quote}
