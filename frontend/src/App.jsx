@@ -30,7 +30,7 @@ export default function Component() {
     setIsLoading(true)
     setError("")
     try {
-      const response = await fetch("http://localhost:8000/quote")
+      const response = await fetch("https://simpleclockbackend-gxeyedauc4afdcbk.canadacentral-01.azurewebsites.net/quote")
       if (!response.ok) {
         throw new Error("Failed to fetch quote", "status:", response.status)
       }
@@ -49,12 +49,14 @@ export default function Component() {
 
   return (
     <Card className="w-full max-w-md mx-auto">
-      <CardHeader>
-        <CardTitle>Winter Arc</CardTitle>
-      </CardHeader>
+      <div className="flex justify-center">
+        <CardHeader>
+          <CardTitle>Winter Arc</CardTitle>
+        </CardHeader>
+      </div>
       <CardContent className="space-y-4">
         <p className="text-2xl font-bold text-center">
-          Days passed since October 5th, 2024 (UTC+5:30):
+          Day (UTC+5:30):
           <span className="block text-4xl text-primary mt-2">{daysPassed}</span>
         </p>
         <div className="space-y-2">
