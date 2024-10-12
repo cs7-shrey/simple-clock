@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request, status
 from fastapi.middleware.cors import CORSMiddleware
-
+import json
 
 app = FastAPI()
 
@@ -22,3 +22,10 @@ def root():
 @app.get("/quote")
 def get_quote():
     return {"quote": quote}
+
+@app.get("/snp500")
+def get_companies():
+    companies = []
+    with open("./app/snp500.json", "r") as file:
+        companies = json.load(file)
+    return {"companies": companies}
